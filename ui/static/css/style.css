@@ -1,0 +1,343 @@
+:root {
+    --spear: #4b917d;
+    --fuchsia: #f037a5;
+    --citric: #cdf564;
+    --white: #fff;
+    --black: #000;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background: #242424;
+    overflow-x: hidden;
+}
+a {
+    margin-bottom: 20px;
+    text-decoration: 0;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+}
+.logo {
+    position: relative;
+}
+h1 {
+    position: relative;
+    z-index: 19;
+    display: block;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+    font-size: 200px;
+    color: #cdf564;
+}
+img.billie {
+    position: absolute;
+    left: 20%;
+    top: 0;
+    z-index: 20;
+    width: 150px;
+    height: 150px;
+    box-shadow: none;
+}
+img.kendrik {
+    position: absolute;
+    right: 20%;
+    top: 50px;
+    z-index: 18;
+    width: 150px;
+    height: 150px;
+    box-shadow: none;
+}
+.wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items:center;
+    align-content: space-around;
+}
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: auto;
+    padding: 20px;
+    margin-bottom: 1%;
+    
+    cursor: pointer;
+}
+.container:nth-child(n) {
+    background-color: var(--citric);
+}
+.container:nth-child(n) b {
+    color: var(--fuchsia);
+}
+.container:nth-child(2n - 1) {
+    background-color: var(--spear);
+}
+.container:nth-child(2n - 1) b {
+    color: var(--citric);
+}
+.container:nth-child(3n -3) {
+    background-color: var(--black);
+}
+.container:nth-child(3n -3) b{
+    color: var(--citric);
+}
+.container:nth-child(3n -3) span{
+    color: var(--white);
+}
+.container:nth-child(4n - 4) {
+    background-color: var(--fuchsia); 
+}
+.container:nth-child(4n - 4) b{
+    color: var(--citric);
+}
+.info__alem {
+    display: flex;
+    justify-content: space-between;
+}
+.info__alem .year {
+    margin: 0;
+    margin-right: 20px;
+}
+img {
+    box-shadow: 7px 4px 13px 2px rgb(255 255 255 / 20%);
+}
+img.image1 {
+    position: relative;
+    z-index: 5;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-bottom: 30px;
+    width: 240px;
+    height: 240px;
+}
+img.image2 {
+    position: absolute;
+    z-index: 4;
+    top: 96px;
+    left: 159px;
+    width: 200px;
+    height: 200px;
+}
+img.image3 {
+    position: absolute;
+    z-index: 3;
+    top: 112px;
+    left: 263px;
+    width: 170px;
+    height: 170px;
+}
+img.image4 {
+    position: absolute;
+    z-index: 2;
+    top: 135px;
+    left: 367px;
+    width: 120px;
+    height: 120px;
+}
+b { 
+    margin-left: 20px;
+    font-size: 30px;
+    font-weight: normal;
+}
+b.artist-name {
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+.artist-info {
+    display: flex;
+}
+.artist-info b {
+    margin: 0;
+}
+.aritist-creation-date {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    margin-right: 100px;
+}
+.aritist-album-realese {
+    display: flex;
+    flex-direction: column;
+}
+@media (max-width: 920px) {
+    h1 {
+        margin-bottom: 40px;
+        font-size: 75px;
+    }
+    img.billie {
+        width: 75px;
+        height: 75px;
+    }
+    img.kendrik {
+        width: 75px;
+        height: 75px;
+    }
+}
+@media (max-width: 500px) {
+    .container {
+        width: 320px;
+        box-sizing: border-box;
+    }
+    img.image1 {
+        align-self: center;
+    }
+    img.image2 {
+        display: none;
+    }
+    
+    img.image3 {
+        display: none;
+    }
+    
+    img.image4 {
+        display: none;
+    }
+    b {
+        font-size: 30px;
+    }
+}
+@media (max-width: 400px) {
+    h1 {
+        font-size: 50px;
+    }
+}
+/* ---------------------------------artist styles--------------------------------------- */
+
+.artist__wrapper {
+    max-width: 1900px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+.artist__name {
+    margin-bottom: 150px;
+
+    color: var(--citric);
+    font-size: 100px;
+}
+
+.artist__image {
+    position: absolute;
+    top: 10px;
+    left: 20%;
+    z-index: 0;
+}
+
+.wrap__container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.artist__container {
+    margin-right: 100px;
+    margin-bottom: 30px;
+}
+
+.concerts__container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.concerts__container div {
+    margin-right: 30px;
+    margin-bottom: 30px;
+    width: 600px;
+}
+
+.artist__concerts div:last-of-type{
+    margin: 0;
+}
+
+h2 {
+    margin: 0;
+    padding: 0;
+
+    font-size: 40px;
+    color: var(--fuchsia);
+}
+
+h2.members {
+    font-size: 60px;
+}
+
+h2.concerts {
+    font-size: 60px;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+li {
+    margin-bottom: 10px;
+
+    font-size: 25px;
+    color: var(--citric);
+}
+
+
+
+.back {
+    text-align: center;
+}
+
+.back:hover a {
+    color: var(--citric);
+}
+
+
+@media (min-width: 1800px) {
+    .artist__image {
+        left: 33%;
+    }
+}
+
+@media (max-width: 768px) {
+    .artist__name {
+        font-size: 68px;
+        margin-bottom: 30px;
+    }
+
+    .artist__image {
+        width: 100px;
+        height: 100px;
+    }
+
+    .concerts__container div {
+        width: 300px;
+    }
+}
+
+@media (max-width: 536px) {
+    .artist__name {
+        font-size: 50px;
+        margin-bottom: 30px;
+    }
+
+    .artist__image {
+        width: 100px;
+        height: 100px;
+    }
+
+    h2 {
+        font-size: 30px;
+    }
+
+    h2.concerts {
+        font-size: 35px;
+    }
+
+    h2.members {
+        font-size: 35px;
+    }
+
+    
+}

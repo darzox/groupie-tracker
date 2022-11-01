@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Groupie-tracker</title>
+    <link rel="icon" type="image/x-icon" href="https://play-lh.googleusercontent.com/mOkjjo5Rzcpk7BsHrsLWnqVadUK1FlLd2-UlQvYkLL4E9A0LpyODNIQinXPfUMjUrbE">
+    <link rel="stylesheet" href="/static/css/style.css" type="text/css">
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <!-- Google fonts -->
+</head>
+<body>
+    <div class="logo">
+        <h1>Groupie-tracker</h1>
+        <img class="billie" src="/static/assets/billie.png" alt="">
+        <img class="kendrik" src="/static/assets/kendrik.jpg" alt="" width="300" height="300">
+    </div>
+
+    <div class="wrapper">
+    {{range .}}
+        <div class="container">
+            <a href="artist/?id={{.Id}}">
+                <div class="info__alem">
+                    <b class="alem">Alem</b>
+                    <b class="year">2022</b>
+                </div>
+                <img class="image1" src="{{.Image}}" alt="{{.Name}}">
+                <img class="image2" src="{{.Image}}" alt="{{.Name}}">
+                <img class="image3" src="{{.Image}}" alt="{{.Name}}">
+                <img class="image4" src="{{.Image}}" alt="{{.Name}}">
+                <b class="artist-name">{{.Name}}</b>
+                <div class="artist-info">
+                    <div class="aritist-creation-date">
+                        <span>Creation Date</span>
+                        <b>{{.CreationDate}}</b>
+                    </div>
+                    <div class="aritist-album-realese">
+                        <span>First album release</span>
+                        <b>{{.FirstAlbum}}</b>
+                    </div>
+                </div>
+            </a>
+            </div>
+        {{end}}
+    </div>
+    <script src="/static/js/index.js"></script>
+</body>
+</html>

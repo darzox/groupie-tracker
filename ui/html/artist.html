@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{.Name}}</title>
+    <link rel="icon" type="image/x-icon" href="{{.Image}}">
+    <link rel="stylesheet" href="/static/css/style.css" type="text/css">
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <!-- Google fonts -->
+    <!--Tomtom map SDK-->
+    <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/maps/maps-web.min.js"></script>
+    <link rel='stylesheet' type='text/css' href='https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/maps/maps.css'>
+    <!--Tomtom map SDK-->
+    <style>
+        .mapboxgl-canvas-container.mapboxgl-interactive, .mapboxgl-ctrl-group button.mapboxgl-ctrl-compass {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="artist__wrapper">
+        <div class="artist__image-name">
+            <h1 class="artist__name">{{.Name}}</h1>
+            <img src="{{.Image}}" alt="{{.Name}}" class="artist__image">
+        </div>
+        <div class="wrap__container">
+            <div class="artist__container">
+                <div class="artist__members">
+                    <h2 class="members">Members</h2>
+                    <ul>
+                        {{range .Members}}
+                        <li>{{.}}</li>
+                        {{end}}
+                    </ul>
+                </div>
+            </div>
+            <div class="artist__concerts">
+                <h2 class="concerts">Concerts</h2>
+                <div class="concerts__container">
+                {{range $key, $value := .DatesLocations}}
+                    <div>
+                        <h2>{{$key}}</h2> 
+                        <ul>
+                            {{range $value}}
+                                <li>{{.}}</li>
+                            {{end}}
+                        </ul>
+                    </div>
+                    {{end}}
+                </div>
+            </div>
+        </div>
+        <h2 class="back"><a href="/">Back</a></h2>
+    </div>
+    <div id="map" style="width: 100%; height: 100vw;"></div>
+    <script src="/static/js/artist.js"></script>
+    <script>
+        let center= [0, 46];
+        const map = tt.map({
+            key: "G8AAi1OjQHeUfHNZwHvLYR0iAUTAKKAe",
+            container: "map",
+            center: center,
+            zoom: 2
+        })
+        
+        map.on('load', () => {
+            {{range .Cities}}
+            new tt.Marker().setLngLat([{{.Lon}}, {{.Lat}}]).addTo(map)
+            .setPopup(new tt.Popup({offset: 30}).setText({{.Name}}))
+            {{end}}
+        })
+        map.addControl(new tt.FullscreenControl());
+        map.addControl(new tt.NavigationControl());
+    </script>
+</body>
+</html>
